@@ -1,12 +1,14 @@
 import './App.css';
-import Login from './Pages/Login';
-import Signup from './Pages/Signup';
+import ProductSection from './Components/ProductSection';
+import AllRoutes from './Routes/AllRoutes';
+
 
 function App() {
   return (
     <div className="App">
-      {/* <Signup /> */}
-      {/* <Login /> */}
+
+      <AllRoutes />
+
     </div>
   );
 }
