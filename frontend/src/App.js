@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
       <AllRoutes />
-      
-    </div>
+      </div>
   );
+
 }
 
 export default App;
