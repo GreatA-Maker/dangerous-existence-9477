@@ -20,7 +20,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:3000/products/${id}`)
+    axios.get(`https://json-8pz0.onrender.com/all/${id}`)
     .then((res) => {
       console.log(res.data);
       setData(res.data);
@@ -42,25 +42,29 @@ const SingleProduct = () => {
     }
     <Flex justifyContent={["center","center","center","center"]} gap="45px"  flexDirection={["column","column","column","row"]}>
       <Box >
-        <Img src={data.image} className={Styles.image}/>
+        <Img src={data.Image} className={Styles.image}/>
       </Box>
       <Box textAlign={["center","center","center","left"]}>
       <Text fontWeight={"bold"} lineHeight="25px" fontSize={"30px"}>{data.Brand}</Text>
-      <Text lineHeight="40px" fontWeight={"meduim"} color="grey" fontSize={"20px"}>{data.discription}</Text>
+      <Text lineHeight="40px" fontWeight={"meduim"} color="grey" fontSize={"20px"}>{data.Name}</Text>
        
        
-        <Flex justifyContent={"center"} textAlign="center" border="1px solid black" w={["45%","45%","30%","25%"]} alignContents={"center"} m={["auto","auto","auto","0px"]}>
-          <Box w="30px"><b>{data.rating}</b></Box>
+        <Flex justifyContent={"center"} textAlign="center" border="0.5px solid black" w={["45%","45%","30%","25%"]} alignContents={"center"} m={["auto","auto","auto","0px"]}>
+          <Box w="30px"><b>4.5</b></Box>
           <Box p="5px"  w="30px"><AiFillStar /></Box>
           <Box color="Teal" w="100px"><b>3.5K Ratings</b></Box>
         </Flex>
         
-        <hr style={{marginTop:"10px",color: 'black',borderColor: 'black',height: '1px'}}/>
+        <hr style={{marginTop:"10px",color: 'black',borderColor: 'black',height: '1px',lineHeight:"22px"}}/>
 
-        <Text fontWeight="medium" lineHeight="30px" mt="20px" fontSize={"30px"}>₹{data.price}</Text>
-        <Text fontWeight="medium" lineHeight="60px" color="Teal" fontSize="18px">inclusive of all taxes</Text>
+        <Flex gap={2} justifyContent={"center"}  w={["45%","45%","30%","25%"]} alignContents={"center"} m={["auto","auto","auto","35px"]}>
+          <Text as="b" lineHeight="22px" fontSize={"18px"}>Rs.{data.Price} </Text>
+          <Text lineHeight="22px" fontSize={"18px"} textDecoration="line-through" color="grey">Rs.{data.OlderPrice} </Text>
+          <Text lineHeight="20px" fontSize={"18px"} color="tomato"> ({data.discount}%OFF)</Text>
+        </Flex>
+        <Text fontWeight="medium" lineHeight="4px" color="Teal" fontSize="18px">inclusive of all taxes</Text>
 
-        <Flex justifyContent={["center","center","center","left"]} >
+        <Flex mt="40px" justifyContent={["center","center","center","left"]} >
           <Text as="b">SELECT SIZE &nbsp; &nbsp; &nbsp;</Text>
           <Flex>
             <Box><Text color='tomato' as="b">SIZE CHART</Text></Box>  
@@ -89,7 +93,7 @@ const SingleProduct = () => {
         <br/>
         <hr style={{marginTop:"10px",color: 'black',borderColor: 'black',height: '1px'}}/>
         
-        <Flex gap="10px" mt="20px" justify={["center",,"center","left"]}>
+        <Flex gap="10px" mt="20px" justifyContent={["center","center","left"]}>
           <Box fontWeight={"medium"} fontSize="20px">BEST OFFERS  </Box>
           <Box mt="5px" fontSize={"22px"}><MdOutlineLocalOffer /></Box>
         </Flex>

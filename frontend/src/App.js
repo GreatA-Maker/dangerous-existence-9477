@@ -3,8 +3,7 @@ import ProductSection from "./Components/ProductSection";
 import AllRoutes from "./Routes/AllRoutes";
 
 function App() {
-
-  return (
+return (
     <div className="App">
       <AllRoutes />
     </div>
