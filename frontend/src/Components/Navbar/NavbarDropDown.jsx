@@ -19,9 +19,9 @@ const NavbarDropDown = ({ name, badge, one, two, three, four, five }) => {
 	return (
 		<Menu isOpen={isOpen}>
 			<MenuButton
-				fontSize="15px"
+				fontSize="14px"
 				color={"black"}
-				fontWeight="500"
+				fontWeight="bold"
 				variant="ghost"
 				_hover={{
 					bg: useColorModeValue("#fff", "#0294c9"),
