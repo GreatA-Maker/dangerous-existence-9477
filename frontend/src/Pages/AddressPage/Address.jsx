@@ -105,7 +105,7 @@ const Address = () => {
               </Box>
 
               <ButtonGroup gap="4" ml="50px">
-                <Button border={'1px solid'} bg="white">
+                <Button border={'1px solid white'} bg="white">
                   REMOVE
                 </Button>
                 <Button border={'1px solid'} bg="white">
