@@ -16,32 +16,41 @@ import cartimg from '../Myntraasset/cartproimg.jpg';
 
 var data = JSON.parse(localStorage.getItem('address')) || [];
 
-console.log(data);
+// console.log(data);
 
 const Address = () => {
   return (
     <div>
-      <Stack>
+      {/* <Stack>
         <Box h="120px" w="100%" border={'1px solid red'}></Box>
-      </Stack>
+      </Stack> */}
 
-      <Box>
-        <Flex gap={10} mt="20px" p="30px">
-          <Box h="730px" border={'2px solid pink'} w="45%" mb="10px">
+      <Box mt="90px">
+        <Flex
+          gap={10}
+          mt="20px"
+          p="30px"
+          flexDirection={['column', 'column', 'row']}
+        >
+          <Box h="730px" w="45%" mb="10px">
             <Flex justifyContent={'space-between'}>
-              <Text fontSize="xl" fontWeight="600">
+              <Text
+                fontSize={['13px', 'lg', 'xl']}
+                fontWeight={[200, 300, 600]}
+                mr={['60px', '', '']}
+              >
                 Selet Delivery Address
               </Text>
               <AddressButton />
             </Flex>
 
-            <Text color={'grey.200'} mt="20px" fontSize={'2xl'}>
+            <Text color={'grey.200'} mt="20px" fontSize={['16px', 'xl', '2xl']}>
               DEFAULT ADDRESS
             </Text>
 
             <Box
-              h="320px"
-              w="90%"
+              h={['auto', '400px', ' ']}
+              w={['320px', '400px', '90%']}
               //   border={'1px solid '}
               borderRadius={'20px'}
               mt="20px"
@@ -50,7 +59,12 @@ const Address = () => {
             >
               <Box>
                 <Flex gap={10} mb="10px" ml="50px">
-                  <Radio checked colorScheme="pink" size="lg" fontSize={'xl'}>
+                  <Radio
+                    checked
+                    colorScheme="pink"
+                    size="lg"
+                    fontSize={['10px', '20px', 'xl']}
+                  >
                     Sachin Kumar
                   </Radio>
                   <Button
@@ -66,7 +80,12 @@ const Address = () => {
                   </Button>
                 </Flex>
 
-                <Text mb="10px" ml="50px" color={'grey'} fontSize="xl">
+                <Text
+                  mb="10px"
+                  ml="50px"
+                  color={'grey'}
+                  fontSize={['15px', '25px', 'xl']}
+                >
                   Bazar samiti , bhelai road , Vishnu nagar <br /> new era
                   school <br /> 8033
                 </Text>
@@ -86,7 +105,7 @@ const Address = () => {
               </Box>
 
               <ButtonGroup gap="4" ml="50px">
-                <Button border={'1px solid'} bg="white">
+                <Button border={'1px solid white'} bg="white">
                   REMOVE
                 </Button>
                 <Button border={'1px solid'} bg="white">
@@ -95,67 +114,70 @@ const Address = () => {
               </ButtonGroup>
             </Box>
 
-            <Text color={'grey.200'} mt="20px" fontSize={'xl'}>
+            <Text
+              color={'grey.200'}
+              mt="20px"
+              fontSize={['15px', '30px', 'xl']}
+            >
               OTHERS ADDRESS
             </Text>
 
-                      {data.map((ele, ind) => {
-                          return (
-                            <Box
-                              h="220px"
-                              w="90%"
-                              //   border={'1px solid '}
-                              borderRadius={'20px'}
-                              borderTopColor="red.200"
-                              mt="20px"
-                              boxShadow={'xl'}
-                              border="2px solid grey"
-                            >
-                              <Box>
-                                <Flex gap={10} mb="20px" ml="50px">
-                                  <Radio
-                                    colorScheme="pink"
-                                    size="lg"
-                                    fontSize={'xl'}
-                                  >
-                                   {ele.name}
-                                  </Radio>
-                                  <Button
-                                    border={'1px solid green'}
-                                    color="green"
-                                    ml="20px"
-                                    bg="white"
-                                    p="0 20px"
-                                    borderRadius={'50px'}
-                                    mt="5px"
-                                  >
-                                    Home
-                                  </Button>
-                                </Flex>
+            {data.map((ele, ind) => {
+              return (
+                <Box
+                  key={ele.ind}
+                  // h="220px"
+                  // w="90%"
+                  //   border={'1px solid '}
+                  borderRadius={'20px'}
+                  borderTopColor="red.200"
+                  mt="20px"
+                  boxShadow={'xl'}
+                  border="2px solid grey"
+                  h={['auto', '400px', ' 220px']}
+                  w={['320px', '400px', '90%']}
+                  // mb={['', '', '50px']}
+                >
+                  <Box>
+                    <Flex gap={10} mb="20px" ml="50px">
+                      <Radio colorScheme="pink" size="lg" fontSize={'xl'}>
+                        {ele.name}
+                      </Radio>
+                      <Button
+                        border={'1px solid green'}
+                        color="green"
+                        ml="20px"
+                        bg="white"
+                        p="0 20px"
+                        borderRadius={'50px'}
+                        mt="5px"
+                      >
+                        Home
+                      </Button>
+                    </Flex>
 
-                                <Text
-                                  mb="20px"
-                                  ml="50px"
-                                  color={'grey'}
-                                  fontSize="xl"
-                                >
-                                 {ele.address}
-                                </Text>
-                                <Text ml="50px" color={'grey'} fontSize="xl">
-                                  mobile:{' '}
-                                          <span fontWeight="800">{ ele.moblie}</span>
-                                </Text>
-                              </Box>
-                            </Box>
-                          );
+                    <Text mb="20px" ml="50px" color={'grey'} fontSize="xl">
+                      {ele.address}
+                    </Text>
+                    <Text ml="50px" color={'grey'} fontSize="xl">
+                      mobile: <span fontWeight="800">{ele.moblie}</span>
+                    </Text>
+                  </Box>
+                </Box>
+              );
             })}
           </Box>
-          <Box h="500px" border={'3px solid '} w="35%" ml="30px">
+          <Box
+            h={['auto', 'auto', '500px']}
+            border={'3px solid '}
+            w={['300px', '300px', '35%']}
+            ml="30px"
+          >
             <Text ml="10px" fontSize={'lg'} mb="20px">
               DELIVERY ESTIMATES
             </Text>
             <Box>
-              <Flex gap="20px">
+              <Flex gap={['5px', '7px', '20px']}>
                 <Image
                   src={cartimg}
                   alt="product_img"
@@ -206,7 +228,7 @@ const Address = () => {
 
                 <Button
                   w="100%"
-                  border={'1px solid red'}
+                  border={'1px solid white'}
                   bg="pink.400"
                   P="100px"
                 >
@@ -218,7 +240,12 @@ const Address = () => {
         </Flex>
       </Box>
 
-      <Box h="auto" w="100%" border={'2px solid white'} mb="20px">
+      <Box
+        h="auto"
+        w="100%"
+        border={'1px solid white'}
+        mt={['', '20px', '40px']}
+      >
         <Flex
           flexWrap={'wrap'}
           align="center"
