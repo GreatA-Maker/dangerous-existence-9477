@@ -39,16 +39,18 @@ export default function AddressButton() {
     AddressData.push(payload);
 
     localStorage.setItem('address', JSON.stringify(AddressData));
+    window.location.reload();
   };
 
   return (
     <>
       <Button
         onClick={onOpen}
-        p="10px 30px"
+        p={['10px 72px', '10px 50px ', '10px 30px']}
         borderRadius={'10px '}
         border="1px solid black"
         bg="white"
+        fontSize={['15px', 'md', null]}
       >
         Add new Address
       </Button>
