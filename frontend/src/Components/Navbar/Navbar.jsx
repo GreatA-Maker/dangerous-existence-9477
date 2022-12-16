@@ -210,7 +210,7 @@ const Navbar = () => {
 
 					<Spacer />
 
-					<Box mr={4}>
+					<Box mr={4} mb={2}>
 						{/* <Input placeContent={'search'} borderRadius="10px" p="10px 80px" mr="100px" /> */}
 						<InputGroup>
 							<InputLeftElement
@@ -220,32 +220,42 @@ const Navbar = () => {
 							<Input
 								type="tel"
 								placeholder="Search for product and more"
-								p="7px 10px 10px 40px"
+								p="7px 10px 5px 40px"
 								variant="filled"
-								// bg="#F5F5F5"
+								fontSize={"14px"}
 								color={"black"}
 								width="400px"
 							/>
 						</InputGroup>
 					</Box>
-					<Box width={20} w={"40px"}>
+					<Box>
 						<Box margin={"auto"} width={"20px"}>
 							{<SlUser fontSize={20} fontWeight="bold" />}{" "}
 						</Box>
-						<Text fontSize="10.5px" mt={1} fontWeight={"bold"}>
+						<Text
+							textAlign={"center"}
+							fontSize="10.5px"
+							mt={1}
+							fontWeight={"bold"}
+						>
 							Profile
 						</Text>
 					</Box>
-					<Box w={"40px"}>
+					<Box>
 						<Box margin={"auto"} width={"20px"}>
 							{<SlHeart fontSize={20} fontWeight="bold" />}{" "}
 						</Box>
-						<Text fontSize="10.5px" mt={1} fontWeight={"bold"}>
+						<Text
+							textAlign={"center"}
+							fontSize="10.5px"
+							mt={1}
+							fontWeight={"bold"}
+						>
 							Wishlist
 						</Text>
 					</Box>
 					<Box>
-						<VStack w={"40px"} spacing={-6}>
+						<VStack spacing={-6}>
 							<Box margin={"auto"} width={"20px"}>
 								{<SlHandbag fontSize={20} fontWeight={"bold"} />}{" "}
 							</Box>
@@ -260,7 +270,12 @@ const Navbar = () => {
 								</Badge>
 							</Box>
 						</VStack>
-						<Text fontSize="10.5px" mt={1} fontWeight={"bold"}>
+						<Text
+							textAlign={"center"}
+							fontSize="10.5px"
+							mt={1}
+							fontWeight={"bold"}
+						>
 							Bag
 						</Text>
 					</Box>
