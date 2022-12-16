@@ -11,8 +11,15 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../Redux/Auth/action";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
   return (
     <Box
       w="100%"
@@ -44,12 +51,18 @@ const Login = () => {
                   placeholder="Email"
                   borderRadius={false}
                   height={12}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
                 <Input
                   type="password"
                   placeholder="Password"
                   borderRadius={false}
                   height={12}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
 
                 <Text
@@ -72,6 +85,7 @@ const Login = () => {
                   borderRadius={false}
                   color="#ffffff"
                   _hover={false}
+                  onClick={() => login(dispatch, email, password)}
                 >
                   LOGIN
                 </Button>
