@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -16,9 +17,14 @@ app.get('/', (req, res) => {
  
 });
 
-app.use('/product', productController);
-app.use('/signup', signupRouter);
-app.use('/login', loginRouter);
+
+
+
+
+
+
+
+
 
 app.listen(port, async () => {
   try {
