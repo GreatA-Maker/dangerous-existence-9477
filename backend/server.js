@@ -26,13 +26,14 @@ app.get("/", (req, res) => {
 
 
 
+
 app.listen(port, async () => {
-    try {
-        await connection;
-        console.log("Connected to Database");
-    } catch (error) {
-        console.log(error);
-        console.log("Not connected");
-    }
-    console.log(`Listning at PORT ${port}`);
-})
+  try {
+    await connection;
+    console.log('Connected to Database');
+  } catch (error) {
+    console.log(error);
+    console.log('Not connected');
+  }
+  console.log(`Listning at PORT ${port}`);
+});
