@@ -21,17 +21,19 @@ const signupFailure = () => {
 
 const signup = (dispatch, email, password) => {
   dispatch(signupRequest)
+  if (email.lenght > 0 && password.lenght > 0) {
+    axios
+      .post("http://localhost:5757/signup", { email, password })
+      .then((res) => {
+        console.log(res.data);
+        dispatch(signupSuccess(res.data))
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch(signupFailure())
+      });
+  }
 
-  axios
-    .post("http://localhost:5757/signup", { email, password })
-    .then((res) => {
-      console.log(res.data);
-      dispatch(signupSuccess(res.data))
-    })
-    .catch((err) => {
-      console.log(err);
-      dispatch(signupFailure())
-    });
 
 }
 
@@ -54,7 +56,7 @@ const loginFailure = () => {
   }
 }
 
-const login = (dispatch, email, password) => {
+const login = (dispatch, email, password, navigate) => {
   dispatch(loginRequest())
   axios
     .post("http://localhost:5757/login", { email, password })
@@ -62,6 +64,10 @@ const login = (dispatch, email, password) => {
       console.log(res.data);
       const token = res.data.token;
       dispatch(loginSuccess(token))
+
+      if (token) {
+        navigate("/")
+      }
     })
     .catch((err) => {
       console.log(err);

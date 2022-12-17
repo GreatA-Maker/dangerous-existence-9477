@@ -18,11 +18,11 @@ loginRouter.post("/", async (req, res) => {
                     res.send({ message: "Login successfull", token: token });
                 }
                 else {
-                    res.send("Login failed");
+                    res.send({ message: "Login failed" });
                 }
             });
         } else {
-            res.send("Login failed");
+            res.send({ message: "Login failed" });
         }
     } catch (error) {
         res.send("Something went wrong Please try again!");

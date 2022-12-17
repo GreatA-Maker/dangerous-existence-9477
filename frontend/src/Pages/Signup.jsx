@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import { signup } from "../Redux/Auth/action";
 import { useDispatch } from "react-redux";
+import { Link as ReactLink } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -94,7 +95,12 @@ const Signup = () => {
                   textAlign="left"
                 >
                   Already have an account{" "}
-                  <Link fontWeight={600} color="#ff3c6f">
+                  <Link
+                    as={ReactLink}
+                    fontWeight={600}
+                    color="#ff3c6f"
+                    to="/login"
+                  >
                     Login
                   </Link>
                 </Text>
