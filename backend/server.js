@@ -13,7 +13,7 @@ app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Welcome my server');
-  // res.end();
+ 
 });
 
 app.use('/product', productController);
