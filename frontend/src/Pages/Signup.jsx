@@ -10,8 +10,15 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
+import { signup } from "../Redux/Auth/action";
+import { useDispatch } from "react-redux";
+import { Link as ReactLink } from "react-router-dom";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
   return (
     <Box
       w="100%"
@@ -43,12 +50,18 @@ const Signup = () => {
                   placeholder="Email"
                   borderRadius={false}
                   height={12}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
                 <Input
                   type="password"
                   placeholder="Password"
                   borderRadius={false}
                   height={12}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
 
                 <Text
@@ -71,6 +84,7 @@ const Signup = () => {
                   borderRadius={false}
                   color="#ffffff"
                   _hover={false}
+                  onClick={() => signup(dispatch, email, password)}
                 >
                   SIGNUP
                 </Button>
@@ -81,7 +95,12 @@ const Signup = () => {
                   textAlign="left"
                 >
                   Already have an account{" "}
-                  <Link fontWeight={600} color="#ff3c6f">
+                  <Link
+                    as={ReactLink}
+                    fontWeight={600}
+                    color="#ff3c6f"
+                    to="/login"
+                  >
                     Login
                   </Link>
                 </Text>
