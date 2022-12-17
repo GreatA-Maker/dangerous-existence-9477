@@ -11,6 +11,36 @@ import shopbycat from '../Myntraasset/shopbycat.jpg';
 import toplisted from '../Myntraasset/toplisted.jpg';
 import eight18 from '../Myntraasset/18.jpg';
 
+import eight19 from '../Myntraasset/43.jpg';
+import eight20 from '../Myntraasset/19.jpg';
+import eight21 from '../Myntraasset/44.jpg';
+import eight22 from '../Myntraasset/45.jpg';
+import eight23 from '../Myntraasset/21.jpg';
+import eight24 from '../Myntraasset/22.jpg';
+import eight25 from '../Myntraasset/49.jpg';
+import eight26 from '../Myntraasset/51.jpg';
+import eight27 from '../Myntraasset/49.jpg';
+import eight28 from '../Myntraasset/26.jpg';
+import eight29 from '../Myntraasset/46.jpg';
+import eight30 from '../Myntraasset/28.jpg';
+import eight31 from '../Myntraasset/29.jpg';
+import eight32 from '../Myntraasset/30.jpg';
+import eight33 from '../Myntraasset/31.jpg';
+import eight34 from '../Myntraasset/39.jpg';
+import eight35 from '../Myntraasset/40.jpg';
+import eight36 from '../Myntraasset/41.jpg';
+import eight37 from '../Myntraasset/42.jpg';
+import eight38 from '../Myntraasset/43.jpg';
+import eight39 from '../Myntraasset/44.jpg';
+import eight40 from '../Myntraasset/45.jpg';
+import eight41 from '../Myntraasset/46.jpg';
+import eight42 from '../Myntraasset/47.jpg';
+import eight43 from '../Myntraasset/48.jpg';
+import eight44 from '../Myntraasset/49.jpg';
+import eight45 from '../Myntraasset/50.jpg';
+import eight46 from '../Myntraasset/51.jpg';
+
+
 
 import ninty90 from '../Myntraasset/90.jpg';
 
@@ -25,8 +55,15 @@ import sev2 from '../Myntraasset/72.png';
 const Homepage = () => {
   return (
     <div>
-      <Box w="100%" border={'1px solid red'} mt="120px">
-        <Image src={topimg} alt="topimg" ml="50px" />
+
+      <Box
+        w={['', null, '111%']}
+        border={'1px solid white'}
+        mt="90px"
+        ml={['-50px', '-50px', '']}
+      >
+        <Image src={topimg} alt="topimg" ml="50px" w="100%" />
+
       </Box>
       <Box border={'2px solide black'}>
         <img src={second} alt="live" />
@@ -306,10 +343,11 @@ const Homepage = () => {
             <Image src={sev2} alt={sev2} />
           </Box>
           <Box border={'2px solid yellow.100'}>
-            <Image src={sev2} alt={sev2} />
+            <Image src={sev9} alt={sev2} />
           </Box>
           <Box border={'2px solid yellow.100'}>
-            <Image src={sev2} alt={sev2} />
+            <Image src={sev4} alt={sev2} />
+
           </Box>
         </SimpleGrid>
       </Box>
