@@ -12,7 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../Redux/Auth/action";
 import { Link as ReactLink, useNavigate } from "react-router-dom";
 
@@ -21,6 +21,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const loginHandle = (e) => {
+    e.preventDefault();
+    if (email && password) {
+      login(dispatch, email, password, navigate);
+      setEmail("");
+      setPassword("");
+    }
+  };
 
   return (
     <Box
@@ -47,76 +56,78 @@ const Login = () => {
             </Heading>
 
             <FormControl>
-              <Stack spacing={6}>
-                <Input
-                  type="email"
-                  placeholder="Email"
-                  borderRadius={false}
-                  height={12}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  borderRadius={false}
-                  height={12}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
+              <form onSubmit={loginHandle}>
+                <Stack spacing={6}>
+                  <Input
+                    type="email"
+                    placeholder="Email"
+                    borderRadius={false}
+                    height={12}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
+                  <Input
+                    type="password"
+                    placeholder="Password"
+                    borderRadius={false}
+                    height={12}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
 
-                <Text
-                  fontSize="sm"
-                  color="#424553"
-                  letterSpacing={1}
-                  textAlign="left"
-                >
-                  By continuing, I agree to the{" "}
-                  <Link fontWeight={600} color="#ff3c6f">
-                    Terms of use
-                  </Link>{" "}
-                  &{" "}
-                  <Link fontWeight={600} color="#ff3c6f">
-                    Privacy Policy
-                  </Link>
-                </Text>
-                <Button
-                  bg="#ff3c6f"
-                  borderRadius={false}
-                  color="#ffffff"
-                  _hover={false}
-                  onClick={() => login(dispatch, email, password, navigate)}
-                >
-                  LOGIN
-                </Button>
-
-                <Button
-                  leftIcon={<FcGoogle />}
-                  colorScheme="black"
-                  variant="outline"
-                  borderRadius={false}
-                >
-                  Login with Google
-                </Button>
-                <Text
-                  fontSize="sm"
-                  color="#424553"
-                  letterSpacing={1}
-                  textAlign="left"
-                >
-                  Already have an account{" "}
-                  <Link
-                    as={ReactLink}
-                    fontWeight={600}
-                    color="#ff3c6f"
-                    to="/signup"
+                  <Text
+                    fontSize="sm"
+                    color="#424553"
+                    letterSpacing={1}
+                    textAlign="left"
                   >
-                    Signup
-                  </Link>
-                </Text>
-              </Stack>
+                    By continuing, I agree to the{" "}
+                    <Link fontWeight={600} color="#ff3c6f">
+                      Terms of use
+                    </Link>{" "}
+                    &{" "}
+                    <Link fontWeight={600} color="#ff3c6f">
+                      Privacy Policy
+                    </Link>
+                  </Text>
+                  <Button
+                    bg="#ff3c6f"
+                    borderRadius={false}
+                    color="#ffffff"
+                    _hover={false}
+                    type="submit"
+                  >
+                    LOGIN
+                  </Button>
+
+                  <Button
+                    leftIcon={<FcGoogle />}
+                    colorScheme="black"
+                    variant="outline"
+                    borderRadius={false}
+                  >
+                    Login with Google
+                  </Button>
+                  <Text
+                    fontSize="sm"
+                    color="#424553"
+                    letterSpacing={1}
+                    textAlign="left"
+                  >
+                    Already have an account{" "}
+                    <Link
+                      as={ReactLink}
+                      fontWeight={600}
+                      color="#ff3c6f"
+                      to="/signup"
+                    >
+                      Signup
+                    </Link>
+                  </Text>
+                </Stack>
+              </form>
             </FormControl>
           </VStack>
         </Box>

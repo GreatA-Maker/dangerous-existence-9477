@@ -13,12 +13,24 @@ import {
 import { useState } from "react";
 import { signup } from "../Redux/Auth/action";
 import { useDispatch } from "react-redux";
-import { Link as ReactLink } from "react-router-dom";
+import { Link as ReactLink, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const signupHandle = (e) => {
+    e.preventDefault();
+
+    if (email && password) {
+      signup(dispatch, email, password, navigate);
+      setEmail("");
+      setPassword("");
+    }
+  };
+
   return (
     <Box
       w="100%"
@@ -44,67 +56,72 @@ const Signup = () => {
             </Heading>
 
             <FormControl>
-              <Stack spacing={6}>
-                <Input
-                  type="email"
-                  placeholder="Email"
-                  borderRadius={false}
-                  height={12}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  borderRadius={false}
-                  height={12}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
+              <form onSubmit={signupHandle}>
+                <Stack spacing={6}>
+                  <Input
+                    type="email"
+                    placeholder="Email"
+                    borderRadius={false}
+                    height={12}
+                    required={true}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
 
-                <Text
-                  fontSize="sm"
-                  color="#424553"
-                  letterSpacing={1}
-                  textAlign="left"
-                >
-                  By continuing, I agree to the{" "}
-                  <Link fontWeight={600} color="#ff3c6f">
-                    Terms of use
-                  </Link>{" "}
-                  &{" "}
-                  <Link fontWeight={600} color="#ff3c6f">
-                    Privacy Policy
-                  </Link>
-                </Text>
-                <Button
-                  bg="#ff3c6f"
-                  borderRadius={false}
-                  color="#ffffff"
-                  _hover={false}
-                  onClick={() => signup(dispatch, email, password)}
-                >
-                  SIGNUP
-                </Button>
-                <Text
-                  fontSize="sm"
-                  color="#424553"
-                  letterSpacing={1}
-                  textAlign="left"
-                >
-                  Already have an account{" "}
-                  <Link
-                    as={ReactLink}
-                    fontWeight={600}
-                    color="#ff3c6f"
-                    to="/login"
+                  <Input
+                    type="password"
+                    placeholder="Password"
+                    borderRadius={false}
+                    height={12}
+                    required={true}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
+
+                  <Text
+                    fontSize="sm"
+                    color="#424553"
+                    letterSpacing={1}
+                    textAlign="left"
                   >
-                    Login
-                  </Link>
-                </Text>
-              </Stack>
+                    By continuing, I agree to the{" "}
+                    <Link fontWeight={600} color="#ff3c6f">
+                      Terms of use
+                    </Link>{" "}
+                    &{" "}
+                    <Link fontWeight={600} color="#ff3c6f">
+                      Privacy Policy
+                    </Link>
+                  </Text>
+                  <Button
+                    bg="#ff3c6f"
+                    borderRadius={false}
+                    color="#ffffff"
+                    _hover={false}
+                    type="submit"
+                  >
+                    SIGNUP
+                  </Button>
+                  <Text
+                    fontSize="sm"
+                    color="#424553"
+                    letterSpacing={1}
+                    textAlign="left"
+                  >
+                    Already have an account{" "}
+                    <Link
+                      as={ReactLink}
+                      fontWeight={600}
+                      color="#ff3c6f"
+                      to="/login"
+                    >
+                      Login
+                    </Link>
+                  </Text>
+                </Stack>
+              </form>
             </FormControl>
           </VStack>
         </Box>

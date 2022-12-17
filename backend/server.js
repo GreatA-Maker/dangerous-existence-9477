@@ -4,7 +4,7 @@ const cors = require("cors")
 const { connection } = require("./Config/db")
 const { signupRouter } = require("./Routes/signup.route")
 const { loginRouter } = require("./Routes/login.route")
-const { productsRouter } = require("./Routes/products.route")
+
 
 const port = process.env.PORT || 5001
 require('dotenv').config()
@@ -13,7 +13,7 @@ app.use(cors())
 
 app.use("/signup", signupRouter)
 app.use("/login", loginRouter)
-app.use("/products", productsRouter)
+
 
 app.get("/", (req, res) => {
     res.send("Welcome to homepage")
@@ -26,14 +26,13 @@ app.get("/", (req, res) => {
 
 
 
-
 app.listen(port, async () => {
-  try {
-    await connection;
-    console.log('Connected to Database');
-  } catch (error) {
-    console.log(error);
-    console.log('Not connected');
-  }
-  console.log(`Listning at PORT ${port}`);
-});
+    try {
+        await connection;
+        console.log("Connected to Database");
+    } catch (error) {
+        console.log(error);
+        console.log("Not connected");
+    }
+    console.log(`Listning at PORT ${port}`);
+})
