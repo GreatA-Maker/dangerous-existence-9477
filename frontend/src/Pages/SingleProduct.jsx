@@ -49,7 +49,7 @@ const SingleProduct = () => {
       <Text lineHeight="40px" fontWeight={"meduim"} color="grey" fontSize={"20px"}>{data.Name}</Text>
        
        
-        <Flex justifyContent={"center"} textAlign="center" border="0.5px solid black" w={["45%","45%","30%","25%"]} alignContents={"center"} m={["auto","auto","auto","0px"]}>
+        <Flex mt="5px" justifyContent={"center"} textAlign="center" border="0.5px solid black" w={["45%","45%","30%","25%"]} alignContents={"center"} m={["auto","auto","auto","0px"]}>
           <Box w="30px"><b>4.5</b></Box>
           <Box p="5px"  w="30px"><AiFillStar /></Box>
           <Box color="Teal" w="100px"><b>3.5K Ratings</b></Box>
@@ -57,7 +57,7 @@ const SingleProduct = () => {
         
         <hr style={{marginTop:"10px",color: 'black',borderColor: 'black',height: '1px',lineHeight:"22px"}}/>
 
-        <Flex gap={2} justifyContent={"center"}  w={["45%","45%","30%","25%"]} alignContents={"center"} m={["auto","auto","auto","35px"]}>
+        <Flex gap={2} justifyContent={"center"}  w={["45%","45%","30%","25%"]} alignContents={"center"} m={["auto","auto","auto","23px"]}>
           <Text as="b" lineHeight="22px" fontSize={"18px"}>Rs.{data.Price} </Text>
           <Text lineHeight="22px" fontSize={"18px"} textDecoration="line-through" color="grey">Rs.{data.OlderPrice} </Text>
           <Text lineHeight="20px" fontSize={"18px"} color="tomato"> ({data.discount}%OFF)</Text>
