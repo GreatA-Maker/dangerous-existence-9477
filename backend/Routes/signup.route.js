@@ -2,8 +2,9 @@ const express = require("express");
 const signupRouter = express.Router();
 const { UserModel } = require("../Models/User.model");
 const bcrypt = require("bcryptjs")
+const { validator } = require("../Middlewares/validator.middleware")
 
-signupRouter.post("/", async (req, res) => {
+signupRouter.post("/", validator, async (req, res) => {
     const { email, password } = req.body;
     const checkUser = await UserModel.findOne({ email })
     if (checkUser) {
