@@ -1,24 +1,23 @@
-const express = require('express')
-const app = express()
-const cors = require("cors")
-const { connection } = require("./Config/db")
-const { signupRouter } = require("./Routes/signup.route")
-const { loginRouter } = require("./Routes/login.route")
-const { productsRouter } = require("./Routes/products.route")
 
-const port = process.env.PORT || 5001
-require('dotenv').config()
-app.use(express.json())
-app.use(cors())
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const { connection } = require('./Config/db');
+const { signupRouter } = require('./Routes/signup.route');
+const { loginRouter } = require('./Routes/login.route');
+const { productController } = require('./Routes/Product.router');
 
-app.use("/signup", signupRouter)
-app.use("/login", loginRouter)
-app.use("/products", productsRouter)
+const port = process.env.PORT || 5001;
+require('dotenv').config();
+app.use(express.json());
+app.use(cors());
 
-app.get("/", (req, res) => {
-    res.send("Welcome to homepage")
-    res.end()
-})
+app.get('/', (req, res) => {
+  res.send('Welcome my server');
+ 
+});
+
+
 
 
 
