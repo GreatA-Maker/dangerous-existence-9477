@@ -11,8 +11,17 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
+import { useDispatch, useSelector, useStore } from "react-redux";
+import { login } from "../Redux/Auth/action";
+import { Link as ReactLink, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   return (
     <Box
       w="100%"
@@ -44,12 +53,18 @@ const Login = () => {
                   placeholder="Email"
                   borderRadius={false}
                   height={12}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
                 <Input
                   type="password"
                   placeholder="Password"
                   borderRadius={false}
                   height={12}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
 
                 <Text
@@ -72,6 +87,7 @@ const Login = () => {
                   borderRadius={false}
                   color="#ffffff"
                   _hover={false}
+                  onClick={() => login(dispatch, email, password, navigate)}
                 >
                   LOGIN
                 </Button>
@@ -91,7 +107,12 @@ const Login = () => {
                   textAlign="left"
                 >
                   Already have an account{" "}
-                  <Link fontWeight={600} color="#ff3c6f">
+                  <Link
+                    as={ReactLink}
+                    fontWeight={600}
+                    color="#ff3c6f"
+                    to="/signup"
+                  >
                     Signup
                   </Link>
                 </Text>
