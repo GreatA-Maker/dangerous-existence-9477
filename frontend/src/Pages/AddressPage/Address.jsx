@@ -13,6 +13,8 @@ import {
 import React from 'react';
 import AddressButton from './Modal';
 import cartimg from '../Myntraasset/cartproimg.jpg';
+import BottomFoo from '../../Components/BottomFooter/BottomFoo';
+import Navbar from '../../Components/Navbar/Navbar';
 
 var data = JSON.parse(localStorage.getItem('address')) || [];
 
@@ -21,11 +23,10 @@ var data = JSON.parse(localStorage.getItem('address')) || [];
 const Address = () => {
   return (
     <div>
-      {/* <Stack>
-        <Box h="120px" w="100%" border={'1px solid red'}></Box>
-      </Stack> */}
+      
+      <Navbar/>
 
-      <Box mt="90px">
+      <Box mt="100px">
         <Flex
           gap={10}
           mt="20px"
@@ -55,7 +56,7 @@ const Address = () => {
               borderRadius={'20px'}
               mt="20px"
               boxShadow={'md'}
-              border="2px solid grey"
+              // border="2px solid grey"
             >
               <Box>
                 <Flex gap={10} mb="10px" ml="50px">
@@ -105,7 +106,7 @@ const Address = () => {
               </Box>
 
               <ButtonGroup gap="4" ml="50px">
-                <Button border={'1px solid white'} bg="white">
+                <Button bg="white" border={'1px solid'}>
                   REMOVE
                 </Button>
                 <Button border={'1px solid'} bg="white">
@@ -130,10 +131,9 @@ const Address = () => {
                   // w="90%"
                   //   border={'1px solid '}
                   borderRadius={'20px'}
-                  borderTopColor="red.200"
                   mt="20px"
                   boxShadow={'xl'}
-                  border="2px solid grey"
+                  border="1px solid white"
                   h={['auto', '400px', ' 220px']}
                   w={['320px', '400px', '90%']}
                   // mb={['', '', '50px']}
@@ -152,15 +152,21 @@ const Address = () => {
                         borderRadius={'50px'}
                         mt="5px"
                       >
-                        Home
+                        Work
                       </Button>
                     </Flex>
 
                     <Text mb="20px" ml="50px" color={'grey'} fontSize="xl">
-                      {ele.address}
+                      Address:- {ele.address}
                     </Text>
                     <Text ml="50px" color={'grey'} fontSize="xl">
-                      mobile: <span fontWeight="800">{ele.moblie}</span>
+                      Mobile:- <span fontWeight="800">{ele.moblie}</span>
+                    </Text>
+                    <Text ml="50px" color={'grey'} fontSize="xl">
+                      Pincode:- <span fontWeight="800">{ele.pincode}</span>
+                    </Text>
+                    <Text mb="20px" ml="50px" color={'grey'} fontSize="xl">
+                      Locality:- {ele.locality}
                     </Text>
                   </Box>
                 </Box>
@@ -169,7 +175,6 @@ const Address = () => {
           </Box>
           <Box
             h={['auto', 'auto', '500px']}
-            border={'3px solid '}
             w={['300px', '300px', '35%']}
             ml="30px"
           >
@@ -191,7 +196,7 @@ const Address = () => {
                 </span>
               </Flex>
 
-              <Text fontSize={'lg'} fontWeight="800" mb="10px">
+              <Text fontSize={'md'} fontWeight="800" mb="10px">
                 PRICE DETAILS (1 Item)
               </Text>
 
@@ -240,36 +245,7 @@ const Address = () => {
         </Flex>
       </Box>
 
-      <Box
-        h="auto"
-        w="100%"
-        border={'1px solid white'}
-        mt={['', '20px', '40px']}
-      >
-        <Flex
-          flexWrap={'wrap'}
-          align="center"
-          justifyContent={'center'}
-          p="30px"
-        >
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-ssl.png"></Image>
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png"></Image>
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png"></Image>
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-ae.png"></Image>
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-dc.png"></Image>
-
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-nb.png"></Image>
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-cod.png"></Image>
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-dc.png"></Image>
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-rupay.png"></Image>
-          <Image src="https://constant.myntassets.com/checkout/assets/img/footer-bank-bhim.png"></Image>
-
-          <Spacer />
-          <Text fontSize={'lg'} fontWeight="900">
-            Need Help ? Contact Us
-          </Text>
-        </Flex>
-      </Box>
+      <BottomFoo />
     </div>
   );
 };

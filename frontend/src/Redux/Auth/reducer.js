@@ -1,12 +1,12 @@
 import * as actionTypes from "./actionTypes";
-import { saveData } from "../../Utils/localStorage"
-import { loadData } from "../../Utils/localStorage"
+// import { saveData } from "../../Utils/localStorage"
+// import { loadData } from "../../Utils/localStorage"
 
 const initialState = {
   isLoading: false,
   isError: false,
   isAuth: false,
-  token: loadData("myntraToken") || null
+  // token: loadData("myntraToken") || null
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -37,7 +37,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       };
     case actionTypes.LOGIN_SUCCESS:
       const token = state.token = payload
-      saveData("myntraToken", token)
+      // saveData("myntraToken", token)
       return {
         ...state,
         isLoading: false,
