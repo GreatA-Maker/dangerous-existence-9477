@@ -1,61 +1,60 @@
 import * as actionTypes from "./actionTypes";
-import { saveData } from "../../Utils/localStorage"
-import { loadData } from "../../Utils/localStorage"
+import { getLocalData } from "../../Utils/LocalStorage";
+import { SaveTheToken } from "../../Utils/LocalStorage";
 
 const initialState = {
-  isLoading: false,
-  isError: false,
-  isAuth: false,
-  token: loadData("myntraToken") || null
+	isLoading: false,
+	isError: false,
+	isAuth: false,
+	token: getLocalData("myntraToken") || null,
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case actionTypes.SIGNUP_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        isError: false,
-      };
-    case actionTypes.SIGNUP_SUCCESS:
-      return {
-        ...state,
-        isLoading: true,
-        isError: false,
-      };
-    case actionTypes.SIGNUP_FAILURE:
-      return {
-        ...state,
-        isLoading: true,
-        isError: false,
-      };
-    case actionTypes.LOGIN_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        isError: false,
-      };
-    case actionTypes.LOGIN_SUCCESS:
-      const token = state.token = payload
-      saveData("myntraToken", token)
-      return {
-        ...state,
-        isLoading: false,
-        isError: false,
-        isAuth: true,
-        token: payload,
-      };
+	switch (type) {
+		case actionTypes.SIGNUP_REQUEST:
+			return {
+				...state,
+				isLoading: true,
+				isError: false,
+			};
+		case actionTypes.SIGNUP_SUCCESS:
+			return {
+				...state,
+				isLoading: true,
+				isError: false,
+			};
+		case actionTypes.SIGNUP_FAILURE:
+			return {
+				...state,
+				isLoading: true,
+				isError: false,
+			};
+		case actionTypes.LOGIN_REQUEST:
+			return {
+				...state,
+				isLoading: true,
+				isError: false,
+			};
+		case actionTypes.LOGIN_SUCCESS:
+			const token = (state.token = payload);
+			SaveTheToken("myntraToken", token);
+			return {
+				...state,
+				isLoading: false,
+				isError: false,
+				isAuth: true,
+				token: payload,
+			};
 
-    case actionTypes.LOGIN_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        isError: true,
-        isAuth: false,
-        token: null,
-      };
-    default:
-      return state;
-  }
-
+		case actionTypes.LOGIN_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+				isError: true,
+				isAuth: false,
+				token: null,
+			};
+		default:
+			return state;
+	}
 };

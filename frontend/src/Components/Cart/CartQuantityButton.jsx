@@ -24,10 +24,12 @@ const CartQuantityButton = ({ qty }) => {
 		<Box>
 			<Button
 				rightIcon={<FiChevronDown />}
-				colorScheme="gray"
+				bg="gray.100"
+				borderRadius={"none"}
 				variant="outline"
-				height={"30px"}
-				px={"10px"}
+				height={"20px"}
+				px={"6px"}
+				fontSize="14px"
 				onClick={onOpen}
 			>
 				Qty : {qty}
