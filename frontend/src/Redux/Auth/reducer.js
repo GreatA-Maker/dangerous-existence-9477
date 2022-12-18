@@ -46,15 +46,15 @@ export const reducer = (state = initialState, { type, payload }) => {
 				token: payload,
 			};
 
-		case actionTypes.LOGIN_FAILURE:
-			return {
-				...state,
-				isLoading: false,
-				isError: true,
-				isAuth: false,
-				token: null,
-			};
-		default:
-			return state;
-	}
+    case actionTypes.LOGIN_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        isAuth: false,
+        token: null,
+      };
+    default:
+      return state;
+  }
 };
