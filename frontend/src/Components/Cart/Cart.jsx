@@ -13,6 +13,8 @@ import {
 	Collapse,
 	useDisclosure,
 	Fade,
+	Divider,
+	Center,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { GrFormNext } from "react-icons/gr";
@@ -22,6 +24,9 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 // import Coupons from "./Coupons";
 // import CartPriceSummary from "./CartPriceSummary";
 import axios from "axios";
+import CartProductCard from "./CartProductCard";
+import Coupon from "./Coupon";
+import CartPriceSummary from "./CartPriceSummary";
 
 const CouponDescription = [
 	"Whistles! Get extra 10% cashback on all prepaid orders above Rs.499. Use Code - PREP10.",
@@ -48,6 +53,18 @@ const cartItems = [
 		productImg:
 			"https://images.bewakoof.com/t320/men-s-black-moon-knigh-typography-oversized-t-shirt-522527-1667510529-1.jpg",
 	},
+];
+
+const Offers = [
+	"5% Unlimited Caskback on Flipkart Axis Bank Credit Card.TCA",
+
+	"Get up to Rs 500 Cashback on CRED Pay UPI on a min spend of Rs 1000. TCA",
+
+	"10% Cashback upto Rs 150 on Freecharge Paylater transaction. TCA",
+
+	"Upto Rs 500 Cashback on Mobikwik Wallet Transactions on a min spend of Rs 999.Use code MBK500 on Mobikwik.TCA",
+
+	"5% Cashback upto Rs 75 on a minimum spend of Rs 1,500 with PayZapp. TCA",
 ];
 
 const Cart = () => {
@@ -178,7 +195,7 @@ const Cart = () => {
 
 				<Stack spacing={4} direction={["column", "row"]}>
 					{/* left box */}
-					<Box w={["100%", "60%"]}>
+					<Box w={["100%", "65%"]}>
 						<HStack
 							px={4}
 							py={3}
@@ -206,6 +223,7 @@ const Cart = () => {
 						<Box
 							mt={2}
 							p={4}
+							pb={1}
 							fontSize={"13px"}
 							borderRadius="2px"
 							border="1px solid #f3f3f3"
@@ -232,26 +250,9 @@ const Cart = () => {
 							<Box mt={2}>
 								<Collapse startingHeight={20} in={show}>
 									<UnorderedList color={"grey"} px={2} spacing={2}>
-										<ListItem>
-											5% Unlimited Caskback on Flipkart Axis Bank Credit Card.
-											TCA
-										</ListItem>
-										<ListItem>
-											Get up to Rs 500 Cashback on CRED Pay UPI on a min spend
-											of Rs 1000. TCA
-										</ListItem>
-										<ListItem>
-											10% Cashback upto Rs 150 on Freecharge Paylater
-											transaction. TCA
-										</ListItem>
-										<ListItem>
-											Upto Rs 500 Cashback on Mobikwik Wallet Transactions on a
-											min spend of Rs 999.Use code MBK500 on Mobikwik.TCA
-										</ListItem>
-										<ListItem>
-											5% Cashback upto Rs 75 on a minimum spend of Rs 1,500 with
-											PayZapp. TCA
-										</ListItem>
+										{Offers.map((item) => (
+											<ListItem>{item}</ListItem>
+										))}
 									</UnorderedList>
 								</Collapse>
 								<Button
@@ -271,97 +272,144 @@ const Cart = () => {
 							</Box>
 						</Box>
 
+						{/* Bag items Count */}
+
+						<HStack px={4} py={3} fontSize={"13px"}>
+							<Text fontSize={"14px"} fontWeight="bold">
+								Bag Items: {`${"0"}`}
+							</Text>
+							<Spacer />
+							<Button
+								variant={"outline"}
+								colorScheme="gray"
+								color={"grey"}
+								border="none"
+								borderRadius="none"
+								fontSize={"12px"}
+							>
+								{" "}
+								REMOVE
+							</Button>
+							<Center height="40px">
+								<Divider orientation="vertical" />
+							</Center>
+
+							<Button
+								variant={"outline"}
+								colorScheme="gray"
+								color={"grey"}
+								border="none"
+								borderRadius="none"
+								fontSize={"12px"}
+							>
+								{" "}
+								MOVE TO WISHLIST
+							</Button>
+						</HStack>
+
 						{/* products */}
 
-						{/* {cartItems.map((item) => (
-							<CartProductCard
-								{...item}
-								removeFromCartHandler={removeFromCartHandler}
-							/>
-						))} */}
+						{cartItems.map((item) => (
+							<CartProductCard {...item} />
+						))}
 					</Box>
 
 					{/* right box */}
-					<Box w={["100%", "40%"]}>
-						<HStack p={3.5} bg={"#fdd835"} borderRadius="5px" fontSize={"15px"}>
-							<Text>Save extra ₹40 with TriBe</Text>
-							<Spacer />
-							<GrFormNext fontSize={"20px"} />
-						</HStack>
-
-						{/* {CouponDescription.map((item) => (
-							<Box
-								px={3}
-								py={1.5}
-								border="1px solid rgb(234, 234, 234)"
-								borderRadius="5px"
-								fontSize={"15px"}
-								mt={4}
-								lineHeight={"1.4rem"}
-							>
-								{item}
-							</Box>
-						))} */}
-
-						{/* coupon redeem  */}
-						{/* <Box
-							p={1.5}
-							border="1px solid rgb(234, 234, 234)"
-							mt={4}
-							lineHeight={"1.4rem"}
+					<Box
+						w={["100%", "35%"]}
+						pl={["0px", "15px"]}
+						borderLeft={["none", "1px solid #f3f3f3"]}
+					>
+						<Box
+							fontSize="12px"
+							lineHeight={"1.5rem"}
+							pb={1}
+							mb={5}
+							borderBottom={"1px solid #f3f3f3"}
 						>
-							<Coupons />
-						</Box> */}
+							<Text color={"black"} fontWeight={"bold"} mb={2}>
+								COUPONS
+							</Text>
+							<HStack>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="18"
+									height="18"
+									viewBox="0 0 18 18"
+									class="coupons-base-couponIcon"
+								>
+									<g
+										fill="none"
+										fill-rule="evenodd"
+										transform="rotate(45 6.086 5.293)"
+									>
+										<path
+											stroke="#000"
+											d="M17.5 10V1a1 1 0 0 0-1-1H5.495a1 1 0 0 0-.737.323l-4.136 4.5a1 1 0 0 0 0 1.354l4.136 4.5a1 1 0 0 0 .737.323H16.5a1 1 0 0 0 1-1z"
+										></path>
+										<circle
+											cx="5.35"
+											cy="5.35"
+											r="1.35"
+											fill="#000"
+											fill-rule="nonzero"
+										></circle>
+									</g>
+								</svg>
+
+								<Text px={"2px"} fontWeight="bold">
+									Apply Coupons
+								</Text>
+
+								<Spacer />
+
+								<Coupon />
+							</HStack>
+
+							<Text color={"gray"} fontWeight={"bold"} mb={2}>
+								<Badge bg={"none"} color="#d90166">
+									Login
+								</Badge>{" "}
+								to get upto ₹200 OFF on first order
+							</Text>
+						</Box>
 
 						{/* Price summary */}
 
-						<Box
-							fontSize={"13px"}
-							color={"grey"}
-							border="1px solid rgb(234, 234, 234)"
-						>
-							<Box mb={2} px={5} py={2.5} bg={"rgba(0,0,0,.04)"} w={"100%"}>
-								<Text fontWeight={"bold"}>PRICE SUMMARY</Text>
+						<Box fontSize={"13px"}>
+							<Box mb={2} py={2.5} w={"100%"}>
+								<Text fontWeight={"bold"}>{`PRICE DETAILS (${1} Item)`}</Text>
 							</Box>
 
-							{/* <CartPriceSummary data={priceSummary} /> */}
+							<CartPriceSummary data={priceSummary} />
 
-							<Box mt={2} px={5}>
-								<Box
-									mb={10}
-									px={5}
-									py={1}
-									bg={"rgb(29, 136, 2,.15)"}
-									color={"rgb(29, 136, 2)"}
-									w={"100%"}
-									borderRadius={"15px"}
-								>
-									<Text>You are saving ₹ {0} on this order</Text>
-								</Box>
-							</Box>
+							<Box mt={2}></Box>
 						</Box>
 
 						{/* total and Add address */}
 
 						{/* coupon redeem  */}
 						<Box
-							p={1.5}
-							border="1px solid rgb(234, 234, 234)"
+							py={1.5}
+							borderTop="1px solid rgb(234, 234, 234)"
 							lineHeight={"1.2rem"}
 						>
-							<HStack
-								px={2.5}
-								borderRadius="5px"
-								fontSize={"13px"}
-								w={"100%"}
-								py={2}
-							>
-								<Box w={"20%"}>
-									<Text fontWeight={"bold"}>Total</Text>
-									<Text fontSize={"17px"}>₹ {0}</Text>
-								</Box>
+							<HStack borderRadius="5px" fontSize={"13px"} w={"100%"} py={2}>
+								<Text fontWeight={"bold"}>Total Amount</Text>
+								<Spacer />
+								<Text fontWeight={"bold"}>₹ 999</Text>
 							</HStack>
 						</Box>
+
+						<Button
+							colorScheme={"pink"}
+							variant={"solid"}
+							borderRadius="none"
+							fontSize={"14px"}
+							width="100%"
+						>
+							PLACE ORDER
+						</Button>
 					</Box>
 				</Stack>
 			</Box>
