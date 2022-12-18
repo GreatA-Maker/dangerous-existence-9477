@@ -26,6 +26,8 @@ export default function AddressButton() {
   const [moblie, setMoblie] = useState('');
   const [pincode, setPincode] = useState('');
   const [address, setAddress] = useState('');
+  const [locality, setLocality] = useState('');
+
   var AddressData = [];
 
   const handalAdd = () => {
@@ -34,6 +36,7 @@ export default function AddressButton() {
       moblie,
       pincode,
       address,
+      locality,
     };
 
     AddressData.push(payload);
@@ -61,7 +64,7 @@ export default function AddressButton() {
           <ModalHeader>ADD NEW ADDRESS</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <FormControl>
+            <FormControl isRequired>
               <FormLabel>CONTACT DETAILS</FormLabel>
               <Input
                 type="text"
@@ -96,7 +99,12 @@ export default function AddressButton() {
                 onChange={(e) => setAddress(e.target.value)}
               />
 
-              <Input type="text" placeholder="Locality/Town" p="25px 20px" />
+              <Input
+                type="text"
+                placeholder="Locality/Town"
+                p="25px 20px"
+                onChange={(e) => setLocality(e.target.value)}
+              />
             </FormControl>
           </ModalBody>
 
