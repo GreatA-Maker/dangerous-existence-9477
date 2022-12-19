@@ -16,27 +16,34 @@ import { SlHandbag } from "react-icons/sl";
 import { SlHeart } from "react-icons/sl";
 import { Search2Icon } from "@chakra-ui/icons";
 import NavbarDropDown from "./NavbarDropDown";
+import { Link } from "react-router-dom";
 
 const links = [
 	//************Men***************
 	{
 		name: "MEN",
+		link: "/products",
 	},
 	{
 		name: "WOMEN",
+		link: "#",
 	},
 
 	{
 		name: "KIDS",
+		link: "#",
 	},
 	{
 		name: "HOME & LIVING",
+		link: "#",
 	},
 	{
 		name: "BEAUTY",
+		link: "#",
 	},
 	{
 		name: "STUDIO",
+		link: "#",
 		badge: "NEW",
 	},
 ];
@@ -177,7 +184,7 @@ const Navbar = () => {
 		<Box>
 			<Box
 				w="100%"
-				border={"1px solid teal.200"}
+				bg={"#ffffff"}
 				boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}
 				p={"15px 2.5% 10px"}
 				top="0"
@@ -197,15 +204,17 @@ const Navbar = () => {
 
 					{/* navbar div items */}
 					{links.map((ele) => (
-						<NavbarDropDown
-							name={ele.name}
-							badge={ele.badge}
-							one={One}
-							two={Two}
-							three={Three}
-							four={Four}
-							five={Five}
-						/>
+						<Link to={ele.link}>
+							<NavbarDropDown
+								name={ele.name}
+								badge={ele.badge}
+								one={One}
+								two={Two}
+								three={Three}
+								four={Four}
+								five={Five}
+							/>
+						</Link>
 					))}
 
 					<Spacer />
