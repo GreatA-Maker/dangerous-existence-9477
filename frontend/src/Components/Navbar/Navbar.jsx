@@ -195,11 +195,13 @@ const Navbar = () => {
 			>
 				<Flex align={"center"} gap="25px">
 					<Box>
-						<Image
-							width={"100px"}
-							src="https://images.indianexpress.com/2021/01/myntra.png"
-							alt="myntra logo"
-						/>
+						<Link to={"/"}>
+							<Image
+								width={"100px"}
+								src="https://images.indianexpress.com/2021/01/myntra.png"
+								alt="myntra logo"
+							/>
+						</Link>
 					</Box>
 
 					{/* navbar div items */}
@@ -238,17 +240,19 @@ const Navbar = () => {
 						</InputGroup>
 					</Box>
 					<Box>
-						<Box margin={"auto"} width={"20px"}>
-							{<SlUser fontSize={20} fontWeight="bold" />}{" "}
-						</Box>
-						<Text
-							textAlign={"center"}
-							fontSize="10.5px"
-							mt={1}
-							fontWeight={"bold"}
-						>
-							Profile
-						</Text>
+						<Link to={"/login"}>
+							<Box margin={"auto"} width={"20px"}>
+								{<SlUser fontSize={20} fontWeight="bold" />}{" "}
+							</Box>
+							<Text
+								textAlign={"center"}
+								fontSize="10.5px"
+								mt={1}
+								fontWeight={"bold"}
+							>
+								Profile
+							</Text>
+						</Link>
 					</Box>
 					<Box>
 						<Box margin={"auto"} width={"20px"}>
@@ -264,29 +268,31 @@ const Navbar = () => {
 						</Text>
 					</Box>
 					<Box>
-						<VStack spacing={-6}>
-							<Box margin={"auto"} width={"20px"}>
-								{<SlHandbag fontSize={20} fontWeight={"bold"} />}{" "}
-							</Box>
-							<Box>
-								<Badge
-									variant="solid"
-									colorScheme="green"
-									ml={"30px"}
-									mt="-15px"
-								>
-									1
-								</Badge>
-							</Box>
-						</VStack>
-						<Text
-							textAlign={"center"}
-							fontSize="10.5px"
-							mt={1}
-							fontWeight={"bold"}
-						>
-							Bag
-						</Text>
+						<Link to={"/cart"}>
+							<VStack spacing={-6}>
+								<Box margin={"auto"} width={"20px"}>
+									{<SlHandbag fontSize={20} fontWeight={"bold"} />}{" "}
+								</Box>
+								<Box>
+									<Badge
+										variant="solid"
+										colorScheme="green"
+										ml={"30px"}
+										mt="-15px"
+									>
+										0
+									</Badge>
+								</Box>
+							</VStack>
+							<Text
+								textAlign={"center"}
+								fontSize="10.5px"
+								mt={1}
+								fontWeight={"bold"}
+							>
+								Bag
+							</Text>
+						</Link>
 					</Box>
 				</Flex>
 			</Box>

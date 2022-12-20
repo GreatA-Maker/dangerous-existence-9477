@@ -15,6 +15,7 @@ import AddressButton from "./Modal";
 import cartimg from "../Myntraasset/cartproimg.jpg";
 import BottomFoo from "../../Components/BottomFooter/BottomFoo";
 import Navbar from "../../Components/Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 var data = JSON.parse(localStorage.getItem("address")) || [];
 
@@ -22,7 +23,7 @@ var data = JSON.parse(localStorage.getItem("address")) || [];
 
 const Address = () => {
 	return (
-		<div>
+		<Box w={"100%"}>
 			<Box mt="100px">
 				<Flex
 					gap={10}
@@ -224,18 +225,20 @@ const Address = () => {
 										Total Amount
 									</Text>
 									<Text fontSize={"lg"} fontWeight="700">
-										1299
+										599
 									</Text>
 								</Flex>
 
-								<Button
-									w="100%"
-									border={"1px solid white"}
-									bg="pink.400"
-									P="100px"
-								>
-									CONTINUE
-								</Button>
+								<Link to={"/orderCompleted"}>
+									<Button
+										w="100%"
+										border={"1px solid white"}
+										bg="pink.400"
+										P="100px"
+									>
+										CONTINUE
+									</Button>
+								</Link>
 							</Box>
 						</Box>
 					</Box>
@@ -243,7 +246,7 @@ const Address = () => {
 			</Box>
 
 			<BottomFoo />
-		</div>
+		</Box>
 	);
 };
 

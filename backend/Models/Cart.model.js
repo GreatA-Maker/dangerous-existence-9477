@@ -4,7 +4,7 @@ const CartSchema = new mongoose.Schema({
 	Brand: { type: String },
 	Price: { type: Number },
 	Name: { type: String },
-	category: { type: String },
+	category: { type: String, default: "T-shirt" },
 	Image: { type: String },
 	rating: { type: Number },
 	discount: { type: Number },

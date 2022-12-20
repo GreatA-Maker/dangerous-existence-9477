@@ -7,6 +7,7 @@ const initialState = {
 	isError: false,
 	isAuth: false,
 	token: getLocalData("myntraToken") || null,
+	userId: getLocalData("userId") || null,
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -36,25 +37,28 @@ export const reducer = (state = initialState, { type, payload }) => {
 				isError: false,
 			};
 		case actionTypes.LOGIN_SUCCESS:
-			const token = (state.token = payload);
+			const token = (state.token = payload.token);
+			const userId = (state.userId = payload.userId);
 			SaveTheToken("myntraToken", token);
+			SaveTheToken("userId", userId);
 			return {
 				...state,
 				isLoading: false,
 				isError: false,
 				isAuth: true,
-				token: payload,
+				token: payload.token,
+				userId: payload.userId,
 			};
 
-    case actionTypes.LOGIN_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        isError: true,
-        isAuth: false,
-        token: null,
-      };
-    default:
-      return state;
-  }
+		case actionTypes.LOGIN_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+				isError: true,
+				isAuth: false,
+				token: null,
+			};
+		default:
+			return state;
+	}
 };
