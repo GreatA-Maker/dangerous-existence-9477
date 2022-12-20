@@ -20,10 +20,19 @@ import { IoIosArrowForward } from "react-icons/io";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import SingleProductSizeButtons from "../Components/SingleProductSizeButtons";
 import { getLocalData } from "../Utils/LocalStorage";
+import { useDispatch } from "react-redux";
+import {
+	getDataSingleFailure,
+	getDataSingleRequest,
+	getDataSingleSuccess,
+} from "../Redux/AppReducer/action";
 
 const SingleProduct = () => {
-	const [token, setToken] = useState(getLocalData(""));
+	const [token, setToken] = useState(getLocalData("myntraToken"));
+	const [user_id, setUser_id] = useState(getLocalData("userId"));
 	const [loading, setLoading] = useState(true);
+
+	const dispatch = useDispatch();
 
 	const [size, setSize] = useState("M");
 
@@ -45,10 +54,36 @@ const SingleProduct = () => {
 	//add to cart
 
 	const AddToCart = (data, size, qty) => {
-		const payload = { data, size, qty };
+		console.log(data);
+		console.log("Add to Bag");
+		const {
+			Brand,
+			Price,
+			Name,
+			Image,
+			rating,
+			discount,
+			OlderPrice,
+			quantity,
+			status,
+		} = data;
+		const payload = {
+			Brand,
+			Price,
+			Name,
+			Image,
+			rating,
+			discount,
+			OlderPrice,
+			quantity,
+			status,
+			size,
+			qty,
+		};
+		console.log(payload);
 
 		return axios
-			.post("https://justbuybackend.onrender.com/products/cart", payload, {
+			.post("http://localhost:8080/cart", payload, {
 				headers: { Authorization: "Bearer" + " " + token },
 			})
 			.then((res) => {
@@ -83,16 +118,20 @@ const SingleProduct = () => {
 	//add to cart ends
 
 	useEffect(() => {
+		// .get(`https://json-8pz0.onrender.com/all/${id}`)
 		setLoading(true);
+		dispatch(getDataSingleRequest());
 		axios
-			.get(`https://json-8pz0.onrender.com/all/${id}`)
+			.get(`http://localhost:8080/product/${id}`)
 			.then((res) => {
 				console.log(res.data);
+				dispatch(getDataSingleSuccess(res.data));
 				setData(res.data);
 				setLoading(false);
 			})
 			.catch((err) => {
 				console.log(err);
+				dispatch(getDataSingleFailure(err));
 				setLoading(false);
 			});
 	}, [id]);

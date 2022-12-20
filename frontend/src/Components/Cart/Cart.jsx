@@ -27,6 +27,7 @@ import axios from "axios";
 import CartProductCard from "./CartProductCard";
 import Coupon from "./Coupon";
 import CartPriceSummary from "./CartPriceSummary";
+import { Link } from "react-router-dom";
 
 const CouponDescription = [
 	"Whistles! Get extra 10% cashback on all prepaid orders above Rs.499. Use Code - PREP10.",
@@ -38,17 +39,7 @@ const cartItems = [
 		description: "Men's Black Moon Knigh Typography Oversized T-Shirt",
 		finalprice: 649,
 		strickprice: 999,
-		size: "L",
-		Qty: 1,
-		productImg:
-			"https://images.bewakoof.com/t320/men-s-black-moon-knigh-typography-oversized-t-shirt-522527-1667510529-1.jpg",
-	},
-
-	{
-		description: "Men's Black Moon Knigh Typography Oversized T-Shirt",
-		finalprice: 599,
-		strickprice: 899,
-		size: "L",
+		size: "M",
 		Qty: 1,
 		productImg:
 			"https://images.bewakoof.com/t320/men-s-black-moon-knigh-typography-oversized-t-shirt-522527-1667510529-1.jpg",
@@ -159,7 +150,7 @@ const Cart = () => {
 		{
 			left: "Total MRP (Incl. of taxes)",
 			// right: totalStrickPrice,
-			right: "FREE",
+			right: "999",
 		},
 		{
 			left: "Shipping Charges",
@@ -168,12 +159,12 @@ const Cart = () => {
 		{
 			left: "Bag Discount",
 			// right: totalStrickPrice - totalFinalPrice,
-			right: "FREE",
+			right: "400",
 		},
 		{
-			left: "Total MRP (Incl. of taxes)",
+			left: "Price After Discount (Incl. of taxes)",
 			// right: totalFinalPrice,
-			right: "FREE",
+			right: "599",
 		},
 	];
 
@@ -183,7 +174,7 @@ const Cart = () => {
 	// }, []);
 
 	return (
-		<Box width={"100%"}>
+		<Box width={"100%"} my="120px">
 			<Box width={"70%"} m={"auto"} my={"30px"} mb="60px">
 				{/* <HStack spacing="5px" pb={"20px"}>
 					<Heading fontSize={"17px"}>My Bag</Heading>
@@ -397,19 +388,21 @@ const Cart = () => {
 							<HStack borderRadius="5px" fontSize={"13px"} w={"100%"} py={2}>
 								<Text fontWeight={"bold"}>Total Amount</Text>
 								<Spacer />
-								<Text fontWeight={"bold"}>₹ 999</Text>
+								<Text fontWeight={"bold"}>₹ 599</Text>
 							</HStack>
 						</Box>
 
-						<Button
-							colorScheme={"pink"}
-							variant={"solid"}
-							borderRadius="none"
-							fontSize={"14px"}
-							width="100%"
-						>
-							PLACE ORDER
-						</Button>
+						<Link to="/address">
+							<Button
+								colorScheme={"pink"}
+								variant={"solid"}
+								borderRadius="none"
+								fontSize={"14px"}
+								width="100%"
+							>
+								PLACE ORDER
+							</Button>
+						</Link>
 					</Box>
 				</Stack>
 			</Box>

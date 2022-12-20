@@ -17,11 +17,11 @@ import Pagination from "../Components/Pagination";
 
 function getUrl(url, sort, orderBy, filterBy) {
 	if (sort && orderBy && filterBy) {
-		url = `${url}&_sort=${sort}&_order=${orderBy}&Brand=${filterBy}`;
+		url = `${url}&order=${orderBy}&orderBy=${sort}&filter=${filterBy}`;
 	} else if (sort && orderBy) {
-		url = `${url}&_sort=${sort}&_order=${orderBy}`;
+		url = `${url}&order=${orderBy}&orderBy=${sort}`;
 	} else if (filterBy) {
-		url = `${url}&Brand=${filterBy}`;
+		url = `${url}&filter=${filterBy}`;
 	}
 	return url;
 }
@@ -43,8 +43,9 @@ const ProductSection = () => {
 	};
 
 	useEffect(() => {
+		// https://json-8pz0.onrender.com/all
 		let apiUrl = getUrl(
-			`https://json-8pz0.onrender.com/all?_page=${page}&_limit=${limit}`,
+			`http://localhost:8080/product?page=${page}&limit=${limit}`,
 			sort,
 			orderBy,
 			filterBy
@@ -210,7 +211,7 @@ const ProductSection = () => {
 											OlderPrice={item.OlderPrice}
 											discount={item.discount}
 											rating={4.5}
-											id={item.id}
+											id={item._id}
 										/>
 										{/* </Link> */}
 									</Stack>

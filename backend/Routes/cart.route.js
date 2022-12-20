@@ -9,7 +9,7 @@ const { CartModel } = require("../Models/Cart.model");
 cartController.get("/", authentication, async (req, res) => {
 	const payload = req.body.user;
 	const CartItems = await CartModel.find({ user_id: payload });
-	console.log(CartItems);
+	console.log("Hello : ", CartItems);
 	res.send(CartItems);
 });
 
@@ -19,7 +19,6 @@ cartController.post("/", authentication, async (req, res) => {
 		Brand,
 		Price,
 		Name,
-		category,
 		Image,
 		rating,
 		discount,
@@ -28,12 +27,12 @@ cartController.post("/", authentication, async (req, res) => {
 		status,
 		size,
 		qty,
-		user_id,
+		userId,
 	} = req.body;
 
 	const AlreadyPresent = await CartModel.find({
-		user_id: user,
-		Name: Name,
+		userId,
+		Name,
 	});
 	if (AlreadyPresent.length > 0) {
 		res.send("Product Already In The Cart");
