@@ -8,8 +8,8 @@ import Signup from "../Pages/Signup";
 import Login from "../Pages/Login";
 import CartPage from "../Pages/CartPage/CartPage";
 import Address from "../Pages/AddressPage/Address";
-// import Admin from "../Pages/Admin/Admin";
-// import Dashboard from "../Pages/Admin/Dashboard";
+import Admin from "../Pages/Admin/Admin";
+import Dashboard from "../Pages/Admin/Dashboard";
 import Page_Not_Found from "../Pages/Page_Not_Found/Page_Not.Found";
 import Payment from "../Pages/Payment/Payment";
 import Order_Completed from "../Pages/Order_Completed/Order_Completed";
@@ -27,8 +27,8 @@ const AllRoutes = () => {
 				<Route path="/address" element={<Address />} />
 				<Route path="/payment" element={<Payment />} />
 				<Route path="/orderCompleted" element={<Order_Completed />} />
-				{/* <Route path="/admin/login" element={<Admin />} /> */}
-				{/* <Route path="/dashboard" element={<Dashboard />} /> */}
+				<Route path="/admin/login" element={<Admin />} />
+				<Route path="/dashboard" element={<Dashboard />} />
 				<Route path="*" element={<Page_Not_Found />} />
 			</Routes>
 		</div>
