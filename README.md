@@ -6,7 +6,7 @@
 This is our Backend Construct Week Project at Masai School's Full Stack Web Development Course. We are currently at the end of MERN stack where we need to make projects as per mastery based progression environment of Masai School after learnig certain tech-tools and in backend.
 
 
-Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India. The company was founded in 2007-2008 to sell personalized gift items. In May 2014, Myntra.com was acquired by Flipkart..
+Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India. The company was founded in 2007-2008 to sell personalized gift items. In May 2014, Myntra.com was acquired by Flipkart.
 
 ##  Tech-stack used
   
