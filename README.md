@@ -13,7 +13,7 @@ Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, 
    ```
    Frontend : React, Redux, Chakra UI, 
    
-   Backend   : Express, MongoDB, NodeJs , Deployed backennd on Cyclic
+   Backend   : Express, MongoDB, NodeJs , Deployed backend on Cyclic
    ```
  ## Team members and contribution
 
