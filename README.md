@@ -19,10 +19,10 @@ Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, 
 
  | Team Member            | Contribution                                                              |
 | ----------------- | ------------------------------------------------------------------ |
-| Sachin Kumar | Home Page  Admin Panel Frontend , Admin Panel Backend 
-| Balu Ram | Signup Pge, Login Page, Payment Page , Express - SignUp And Login APIs 
-| Lalit | Products Display Page , Single Product Page, Redux - Pagination and Filter & Sort Feature
-| Atul Kumar | Address Page and Cart Page, NavBar  ,Footer , Express - Cart API , Redux for Store
+| Sachin Kumar | Home Page, Admin Panel Frontend, Admin Panel Backend 
+| Balu Ram | Signup Pge, Login Page, Payment Page, Express - SignUp And Login APIs 
+| Lalit | All Products Page, Single Product Page, Redux - Pagination and Filter & Sort Feature
+| Atul Kumar | Address Page and Cart Page, NavBar, Footer, Express - Cart API, Redux for Store
 
 ## Features
 
