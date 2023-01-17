@@ -28,7 +28,7 @@ Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, 
 
  | Serial No            | Feature                                                              |
 | ----------------- | ------------------------------------------------------------------ |
-| 1 | User signup and Login |
+| 1 | User SignUp and Login |
 | 2 | Dynamic add to cart feature |
 | 3 | Dynamic cart page |
 | 4 | Dummy payment for debit card |
